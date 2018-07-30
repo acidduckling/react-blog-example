@@ -1,5 +1,6 @@
 export const Actions = {
   FETCH_POSTS: 'FETCH_POSTS',
+  FETCH_POST: 'FETCH_POST',
   CREATE_POST: 'CREATE_POST'
 };
 
@@ -24,6 +25,14 @@ export function createPost(values, callback) {
     .then(callback);
   return {
     type: Actions.CREATE_POST,
+    payload: request
+  };
+}
+
+export function fetchPost(id) {
+  const request = fetch(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => response.json());
+  return {
+    type: Actions.FETCH_POST,
     payload: request
   };
 }
