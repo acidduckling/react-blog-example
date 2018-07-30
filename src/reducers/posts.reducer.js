@@ -17,6 +17,11 @@ export default function(state = {}, action) {
           }, {})
         : state;
 
+    case Actions.DELETE_POST:
+      const newState = {...state};
+      delete newState[payload];
+      return newState;
+
     default:
       return state;
   }
