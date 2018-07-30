@@ -9,7 +9,7 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
-    Object.entries(this.props.posts).map(([key, post]) => {
+    return Object.entries(this.props.posts).map(([key, post]) => {
       return (
         <li key={key} className="list-group-item">
           {post.title}

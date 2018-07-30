@@ -14,10 +14,16 @@ export function fetchPosts() {
   };
 }
 
-export function createPost(values) {
-  const request = fetch(`${ROOT_URL}/posts${API_KEY}`, values).then(response => response.json());
+export function createPost(values, callback) {
+  const request = fetch(`${ROOT_URL}/posts${API_KEY}`, {
+    method: 'post',
+    body: JSON.stringify(values),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(callback);
   return {
     type: Actions.CREATE_POST,
     payload: request
-  }
+  };
 }
