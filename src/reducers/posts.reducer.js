@@ -1,5 +1,4 @@
-import { fetchPosts, Actions } from '../actions';
-import { access } from 'fs';
+import { Actions } from '../actions';
 
 export default function(state = {}, action) {
   switch (action.type) {
